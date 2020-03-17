@@ -1,0 +1,27 @@
+app-》多个page（内置组件，自定义组件）-》组件
+app是由js json wxss
+app表示我们整个应用程序
+写完一个知识点，打一个tag，再根据git reset --hard 初始化
+git init初始化git仓库
+git add.将当前文件下所有文件，添加到咱换区里面
+跟本地代码git关联 git remote add origin git地址
+git remote add origin git@github.com:wuditzy/miniProgram.git
+git push -u origin master 不能push执行下面的代码
+git pull --rebase origin master
+这条指令的意思是把远程库中的更新合并到本地库中，–rebase的作用是取消掉本地库中刚刚的commit，并把他们接到更新后的版本库之中。
+
+
+$ git push -u origin master中遇到的问题
+error: src refspec master does not match any
+1.执行https://www.jianshu.com/p/04bff0a939e4?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation
+2.执行https://www.cnblogs.com/xyfer1018/archive/2019/09/09/11493810.html
+
+
+
+git提交步骤
+git add .
+git commit -m ""
+git tag 01_暗红褐色的（打tag）
+git log（查看提交日志）
+git reset --hard 版本号 （回退哪一个版本）hard强制回退
+git push --tags(推送到远程)

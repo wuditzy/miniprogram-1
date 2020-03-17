@@ -1,0 +1,8 @@
+<!--pages/home/home.wxml-->
+<text class="title">home</text>
+<button size="mini">按钮</button>
+<view>是的</view>
+<button size="mini">按钮</button>
+<button size="mini">按钮</button>
+<button size="mini">按钮</button>
+<button size="mini">按钮</button>
