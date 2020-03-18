@@ -1,8 +1,162 @@
 <!--pages/home/home.wxml-->
-<text class="title">home</text>
-<button size="mini">按钮</button>
-<view>是的</view>
-<button size="mini">按钮</button>
-<button size="mini">按钮</button>
-<button size="mini">按钮</button>
-<button size="mini">按钮</button>
+<!-- 1.小程序的数据绑定：{{}}-》mastache -->
+<view>hello {{name}}</view>
+<!-- <view>我的年龄{{age}}</view> -->
+
+<!-- 2.列表展示：wx:for -->
+<!-- <view wx:for="{{movies}}">{{item.name}}</view> -->
+
+<!-- 3.事件监听 -->
+<!-- <view>当前计数：{{counter}}</view>
+<button size="mini" bindtap="handleBtnClick">+</button>
+<button size="mini" bindtap="handleSubtraction">-</button> -->
+
+<!-- vue 的mvvm  和小程序的mvvm  
+MVVM有三个角色
+m:Model（逻辑层）
+v:View
+vm：ViewModel （作用第一件事情：就是用DataBinding将Model里数据想办法绑定到view，第二件事情dom listeners：跟用户交互的时候产生的各种各样的事件 反过来修改我们的Model）
+
+小程序框架底层用的是mina框架
+在mvvm里面扮演的是viewModel的角色
+
+
+mvvm有什么好处：
+  dom listeners：ViewModel层可以将dom的监听绑定到model层
+  data binding：vierModel可以将数据变量，响应式的反映到view层
+  mvvm将我们从命令式编程，转移到声明式编程
+
+编成：
+  命令式编程：原生操作dom（这一步需要做什么，下一步需要做什么），一步一步命令才能达到你想要的效果
+    例如：
+    1.声明变量
+    let name="哈哈"
+    2.通过class获取元素
+    const titleEl=document.querySelector('.title')
+    3.设置内容的显示
+    titleEl.textContent=name
+    4.获取按钮dom
+    const btnEl=document.querySelector('.btn')
+    5.监听按钮的点击
+    'tingbtnEl.addEventListener('click',()=>{
+    name='呵呵'
+    titleEl.textContent=name
+    })
+  声明式编程：
+    例如：
+    <html>
+      <body>
+        <div>
+          <h2>{{title}}</h2>
+          <button @click="btnClick">按钮</button>
+        </div>
+        <script scr="./vue.js"></script>
+        <script>
+          new Vue({
+            el:'#app',
+            data:{
+              title:'333'
+            },
+            methods:{
+              btnClick(){
+                this.title='555'
+              }
+            }
+          })
+        </script>
+      </body>
+    </html>
+-->
+
+
+<!-- 
+  小程序的很多开发需求被规定在了配置文件中
+    这样做可以更有利于我们开发的效率
+    并且可以保证开发出来的小程序的某些风格比较一致
+    比如导航栏-顶部tabBar，以及页面路由等等
+
+常见的配置文件
+  project.config.json:项目配置文件，比如项目名称，appid等
+    projext.config.json关于项目里面设置的配置
+  sitemap.json小程序搜索相关的
+  app.json:全局配置
+    pages：string 页面路径列表
+      用于指定小程序由那些页面组成，每一项对应一个路径信息
+      小程序所有页面都必须在pages里面进行注册
+    window：全局的默认窗口展示
+      用户指定窗口如何展示
+      tabBar:顶部tab栏的展示
+
+  page.json页面配置
+    每一个小程序都可以使用.json文件来对窗口表现进行相应的设置
+    页面中的配置型会覆盖app.json中window中相同的配置项
+ -->
+
+<!--
+  双线模型
+    微信客户端
+      宿主环境为了执行小程序的各个文件：wxml文件，wxss，js
+      提供了小程序双线程模型
+        双线程模型：wxml模板和wxss样式运行于渲染层，渲染层使用webViwe线程渲染（一个程序有多个页面，会使用多个webView的线程）
+        js脚本（app.js/home.js等）运行于逻辑层，逻辑层使用jsCore运行脚本本
+        这两个线程都会经由微信客户端（Native）运行中转交互
+          wxml等价于一颗dom树，也可以用js对象来模拟
+
+          wxml可以先转成js对象，在渲染出真正的dom树
+          <view>{{mes}}</view>        
+                                  =>{name:'view,
+                                  children:[{text:'hello'}]}   => WebView=--->hello
+          {
+          mes:'hello'
+          }
+
+
+
+          通过setData把msgshujucong"hello world"编程"good"
+            产生的js对象对应的节点就会发生变化
+            此时可以对比前后两个js对象得到变化的部分
+            然后把这个差异应用到原来的dom树上
+            从而达到更新ui的目的，这就是数据驱动的原理
+            01.png
+
+
+
+总结：页面整体渲染的流程，
+  在渲染层，宿主环境会把wxml转化成对应的js对象
+  将js对象再次转成真是的dom树，交由渲染层线程渲染
+  数据变化时，逻辑层提供最新的变化数据，js对象发生变化比较进行diff算法对比
+  将最新变化的内容反映到真实的dom树中，更新ui
+
+ -->
+ <!--
+  启动流程
+    下载小程序包，启动小程序，加载解析app.json->注册App（）{执行App生命周期，加载自定义组件代码注册自定义组件{
+      加载解析page.json
+      渲染层加载渲染page.wxml
+      逻辑层Page（）-》执行page声明周期}
+    }
+  -->
+
+
+  <!--
+    注册app时我们会做什么
+     1.判断小程序的进入场景
+     2.监听生命周期函数，在生命周期中执行对应的业务逻辑，比如在某个生命周期中获取微信用户信息
+     3.因为App（）实例只有一个，并且时全局共享（单例对象），所以我们可以将一些共享数据放到里面
+     小程序打开场景比较多：群聊天会话中打开，小程序列表中打开，微信扫一扫打开，另一个小程序打开
+    获取用户信息
+      1.wx.getUserInfo即将废弃的接口
+      2.button组件-将open-type改成getUserInfo，并且绑定bindgetuserinfo事件去获取
+        <button size="mini" open-type="getUserInfo" bindgetuserinfo="handleGet"></button>
+      3.使用open-data组件展示用户信息
+        <open-data type="userNiceName"></open-data>
+   -->
+
+
+   <!-- 
+    每一个页面都有要给js文件，调用page方法注册页面示例
+      在注册时，可以绑定初始化数据，生命周期回调，事件处理函数等
+      初始化数据，以方便被wxml引用展示
+      监听wxml中的事件，绑定对应的事件函数
+      其他一些监听（页面滚动，上拉刷新，下拉加载……）
+    -->

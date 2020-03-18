@@ -16,7 +16,13 @@ error: src refspec master does not match any
 1.执行https://www.jianshu.com/p/04bff0a939e4?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation
 2.执行https://www.cnblogs.com/xyfer1018/archive/2019/09/09/11493810.html
 
+      git remote -v：                                           查看远程仓库详细信息，可以看到仓库名称
 
+      git remote remove orign：                        删除orign仓库（如果把origin拼写成orign，删除错误名称仓库）
+
+      git remote add origin 仓库地址：              重新添加远程仓库地址
+
+      gti push -u origin master：                       提交到远程仓库的master主干
 
 git提交步骤
 git add .
@@ -25,3 +31,14 @@ git tag 01_暗红褐色的（打tag）
 git log（查看提交日志）
 git reset --hard 版本号 （回退哪一个版本）hard强制回退
 git push --tags(推送到远程)
+
+
+
+
+
+Git之master ->! [rejected] master (non-fast-forward)
+出现这个情况可能是在克隆项目的时候强制关闭或者是在pull的时候强制关闭
+
+运行命令：git pull --rebase origin master
+
+然后就可以 git push origin master

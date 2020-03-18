@@ -1,66 +1,75 @@
-// pages/home/home.js
+//注册一个页面
 Page({
+  //这个{}叫做对象的自变量
+  data:{
+    name:'tian',//属性
+    age:18,
+    movies:[
+      { id: 1, name: '333', age: 33 }
+    ],
+    counter:0,
+    list:[]
+  },
+  handleBtnClick(){
+    // console.log('33')
+    //错误方法界面不会刷新
+    this.data.counter +=1
+    console.log(this.data.counter)
 
-  /**
-   * 页面的初始数据
-   */
-  data: {
 
+    //用this.setData改变数据
+    this.setData({
+      counter:this.data.counter+1
+    })
+  },
+  handleSubtraction(){
+    this.setData({
+      counter:this.data.counter-1
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
+  //---监听页面生命周期函数
+  //页面被加载出来
+  onLoad(){
+    const _this=this
+    wx.request({
+      url: 'http://123.207.32.23:8000/recommend',
+      success:function(res){
+        // this.setData//this--undefined
+        _this.setData
+      }
+      // seccess:(res)=>{//箭头函数中的this是一层一层网上找的
+      //   console.log(res,'res')
+      // }
+    })
+  },
+  //页面显示出来时
+  onshow(){
 
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
+  //页面初次渲染完成时
+  onReady(){
 
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
+  //页面隐藏时
+  onHide(){
 
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
+  //销毁
+  onUnload(){
 
   },
+  //监听其他事件
+    //监听页面滚动
+    onPageScroll(obj){
+      
+    },
+    //监听页面滚动到底部
+    onReachBottom(){
+      
+    },
+    //下拉刷新
+    onPullDownRefresh(){
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
+    }
 })
