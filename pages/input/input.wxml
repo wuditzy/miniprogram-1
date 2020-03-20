@@ -1,0 +1,21 @@
+<!--pages/input/input.wxml-->
+<!-- <text>pages/input/input.wxml</text>
+<input/>
+  1.input 用于接收用户输入的信息，
+  2.可以单标签，双标签<input/>或者<input></input> -->
+
+
+  <!-- 常见的属性 -->
+  <!-- 1.value：input中的默认值
+  2.type：决定键盘的类型（英文字符，+，特殊符号，数字）
+  3.password：明文暗文
+  <input password/>
+  4.placeholder占位文字
+  5.confirm-type：设置右下角按钮文字，仅在type='text'生效 -->
+
+
+  <!-- input绑定事件 -->
+  1.bindinput用户用键盘输入内容的时候调用的事件<input/>
+  2.bindfocus聚焦
+  3.bindblur失去焦点
+  <input bindinput=""/>

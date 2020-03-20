@@ -1,0 +1,28 @@
+<!--pages/image/image.wxml-->
+<text>pages/image/image.wxml</text>
+  1.image的重点，可以写成，单标签，也可以写成双标签
+  2.image默认有自己的大小320*240
+  3.image行内块级元素inline-block
+  
+  <!-- src：远程图片，本地图片 -->
+  <!-- 
+  1.<image src="本地图片（相对/绝对--从当前项目所在的文件开始）"></image>
+    <image src="../../assets/stady/01.png"></image>
+    <image src="/assets/stady/01.png"></image>
+  2.<image src="远程图片"></image> 
+  3.补充：想显示相册中的图片
+    <button bindtap="handleChooseAblum">上传图片</button>
+    <image src="{{imagePath}}"></image>
+  4.bindload:监听图片加载完成
+  5.lazy-load:图片懒加载，当我们的图片进入上下三屏才开始加载
+  6.show-menu-by-longpress:长按图片出现识别小程序码
+  7.binderror:加载的图片出错的时候
+  8.mode：缩放模式
+  -->
+  <image
+    wx:for="{{1}}"
+    show-menu-by-longpress
+    src="https://res.wx.qq.com/wxdoc/dist/assets/img/0.4cb08bb4.jpg"
+    bindload="handleImageLoad"
+    lazy-load></image>
+  

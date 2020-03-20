@@ -1,0 +1,29 @@
+<!--pages/wxss/wxss.wxml-->
+<text>pages/wxss/wxss.wxml</text>
+<!-- 设置样式的三种方式 
+  1.行内样式：
+  -->
+  <!-- <view style="key1:value;color:#f00;font-size:12px">00</view> -->
+  <!-- 2.页内样式 -->
+  <!-- <view class="box">00</view> -->
+  <!-- 全局样式--app.wxss -->
+  <!-- <view class="container">00</view> -->
+
+
+  <!-- 三种样式作用于同一个组件 
+    行内优先级比较高>页内>全局样式-->
+   <view style="key1:value;color:#f00;font-size:12px" class="container box">00</view>
+
+
+   <!-- 选择器
+   important>style>id>class>element -->
+
+
+
+   <!-- wxss扩展尺寸的单位--rpx
+    可以根据屏幕的宽度进行自适应，规定为750rpx
+    前端配置尺寸的适配，px，em
+    如果在iphone6上，屏幕宽度为375px，共有750个物理像素点，则750rpx=375px-750物理像素，1rpx=0.5px=1物理像素
+     -->
+     <!-- 样式导入
+     @import './../' -->

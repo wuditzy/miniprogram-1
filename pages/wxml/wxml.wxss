@@ -1,0 +1,8 @@
+/* pages/wxml/wxml.wxss */
+.active1{
+  /* background-color: #ff9100; */
+  color: #fff;
+}
+.box{
+  background-color: #f00;
+}

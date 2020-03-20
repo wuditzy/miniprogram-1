@@ -1,0 +1,12 @@
+
+  var foo = "hello world";
+var name = "tian";
+var sum = function (i, j) {
+  return i + j
+}
+
+//commonjs的模块化导出的写法
+module.exports = {
+  name: name,
+  sum: sum
+}

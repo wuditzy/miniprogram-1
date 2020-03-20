@@ -1,0 +1,31 @@
+<!--pages/scroll/scroll.wxml-->
+<text>pages/scroll/scroll.wxml</text>
+<!-- 水平滚动scroll-x -->
+<!-- <scroll-view class="container1" scroll-x>
+  <view wx:for="{{10}}" class="item1">{{item}}</view>
+</scroll-view> -->
+
+
+
+<!-- 垂直滚动 scroll-y-->
+<!-- <scroll-view class="container2" scroll-y>
+  <view wx:for="{{10}}" class="item2">{{item}}</view>
+</scroll-view> -->
+
+<!-- 其他补充 -->
+<!-- 1.监听滚动什么位置了 
+bindscroll:监听滚动
+-->
+<!-- <scroll-view class="container2" scroll-y>
+  <view wx:for="{{10}}" class="item2">{{item}}</view>
+</scroll-view> -->
+
+
+<!-- 共同属性：所有内置组件包含的属性
+id
+class
+style：内联样式/行内样式
+hidden：组件要不要显示 hidden="{{true}}"
+data—*
+bind*/catch*:bindtap/catchtap
+ -->

@@ -1,0 +1,6 @@
+<!--pages/view/view.wxml-->
+<text>pages/view/view.wxml</text>
+  1.view的基本使用，相当于div 块级元素，独占一行
+  2.hover-class：当用户按下组件时显示的样式
+  3.hover-stop-propagation：子组件点击的时候阻止父组件点击的时候样式---阻止祖先组件点击态
+  4.hover-stay-time：hover-class点击后样式停留的时间

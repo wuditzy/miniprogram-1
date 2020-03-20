@@ -1,0 +1,134 @@
+<!--pages/wxml/wxml.wxml-->
+<text>pages/wxml/wxml.wxml</text>
+<!-- 
+wxml
+1.类似于html代码：比如可以写成但标签，也可写成双标签
+2.必须有严格的闭合：没有闭合会导致编译错误
+3.大小写敏感：class和Class是不同的属性 -->
+
+<!-- mustache -->
+<!-- <view>{{msg}}</view>
+<view>{{msg}} {{msg}}</view>
+<view>{{msg + ' ' + msg}}</view>
+<view>{{age>=18?'成年':'未成年'}}</view>
+<view>{{nowTime}}</view>
+
+<button size="mini" bindtap="handleSwitchColor">切换颜色</button>
+<view class='box {{isActive ? "active1" : ""}}'>哈哈</view>
+<view class="active1">哈哈</view> -->
+
+
+<!-- 条件判断 -->
+<button size="mini" bindtap="handleSwitchShow">切换颜色</button>
+<view wx:if="{{isShow}}">条件判断</view>
+
+
+<button size="mini" bindtap="handleInCrement">切换颜色</button>
+<view wx:if="{{score>=90}}">优秀</view>
+<view wx:elif="{{score>=80}}">良好</view>
+<view wx:elif="{{score>=60}}">及格</view>
+<view wx:else>不及格</view>
+
+
+
+<!-- hidden属性 
+wx:if和hidden有什么区别：
+hidden将我们一个组建隐藏时，这个组件是依然存在的，display：none
+wx：if将一个组件隐藏时，我们的组件根本不存在
+选择:如果我们的显示隐藏切换频率非常高，我们使用hidden，如果显示隐藏切换频率非常低使用wx：if-->
+<view wx:if="{{true}}">我是hidden控制的内容if</view>
+<view hidden="{{false}}">我是hidden控制的内容</view>
+
+
+<!-- 
+wx:for
+我们知道在实际开发中，服务器经常返回各种列表数据，我们不可能一一从列表中取出数据进行展示，需通过for进行列表渲染
+可以便利数组、字符串、数字
+-->
+<view wx:for="{{['222','333']}}">{{item}}{{index}}</view>
+<view wx:for="sadfsfj">{{item}}{{index}}</view>
+<view wx:for="{{9}}">{{item}}{{index}}</view>
+
+
+<!-- 
+  block标签：
+  某些情况下我们需要使用，wx:if/wx:for，可能需要包裹一组组件标签，我们需要这一组标签进行整体操作
+  block并不是一个组件，他仅仅是一个包装元素，不会再页面中进行任何渲染，只接受控制属性
+ -->
+<block>标签：最终不会渲染出来</block>
+<view wx:if="{{isShow}}"></view>
+<view wx:if="{{isShow}}"></view>
+<button wx:if="{{isShow}}"></button>
+
+<block wx:if="{{isShow}}">
+  <view></view>
+  <view></view>
+  <button></button>
+</block>
+
+
+
+<view wx:for="{{3}}">
+  {{item}}
+</view>
+
+
+
+
+<!-- 
+  item
+  默认情况下 item和index的名字是固定的
+  但是在某些情况下，我们想使用其他的名字，或者出现多层遍历，名字会重复
+  那么我们可以指定item和index的名字
+
+  wx：for会有一个警告
+  提示我们，添加一个key来提供性能
+  当我们某一层有很多相同的节点时，也就是列表节点，我们希望插入一个新的节点，
+    我们想在b和c中插入一个f，diff算法执行起来会是这样的
+    既把c更新成f，把d更新成c，把d更新e，
+ -->
+<view wx:for="{{movies}}" wx:for-item="movie" wx:for-index="i">{{movie}}{{i}}</view>
+
+
+
+
+<!--模板语法
+wxml提供模板语法：可以在模板中定义代码片段，在不同的地方调用（是一种wxml代码的复用机制）,
+使用name属性,作为模板的名字，然后使用<template/>内定义代码片段
+之前的时候小程序不支持代码自定义组件，为啦进行代码的复用：template
+template模板包裹的东西在没有被使用前，是不会进行渲染的
+
+ -->
+
+<!-- <template name="contentItem">
+  <button size="mini">{{btnText}}</button>
+  <view>{{content}}</view>
+</template> -->
+<template is="contentItem"/>
+<template is="contentItem"/>
+<template is="contentItem" data="{{btnText:'value1',content:'value2'}}"/>
+
+
+
+<!-- wxml引入
+小程序wxml中提供两种引入文件的方式import和include  
+src可以用绝对路径也可以用相对路径 
+注意：wxml中不能递归引入（也就是a引入了b的template，不会引入b中引入c中的template）-->
+<import src="./template.wxml"/>
+<!-- 结论include是不可以导入模板的 
+include可以将目标文件中除了<template/><wxs/>外的整个代码引入，相当于拷贝import的位置
+include可以递归导入
+总结：关于wxml导入两种方式：
+import导入：主要导入template，不能递归导入
+include导入：将公用的wxml中的组件抽取到一个文件中，不能导入template/wxs，可以进行递归导入-->
+<include src="./header.wxml"/>
+<include src="./footer.wxml"/>
+
+
+
+
+
+
+
+
+

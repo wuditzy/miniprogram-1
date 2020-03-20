@@ -1,0 +1,10 @@
+<!--pages/button/button.wxml-->
+<text>pages/button/button.wxml</text>
+<button>按钮</button>
+  1.size：mini 大小，
+  2.type：primary  default warning
+  3.plain：镂空效果--多一个边框
+  4.disable：不可用
+  5.loading：
+  6.hover-class：点击的时候样式
+

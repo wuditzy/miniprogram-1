@@ -1,0 +1,54 @@
+<!--pages/wxs/wxs.wxml-->
+<!-- <text>pages/wxs/wxs.wxml</text> -->
+<!-- wxs模块
+  wxs是小程序的一套脚本语言，结合wxml，构建出页面的结构
+  wxs与js是不同的语言，有自己的语法，并不和js一致
+  
+  为什么设计wxs语言呢
+    wxml中是不能直接调用Page/Component中定义的函数
+    但某些情况，我们希望使用函数来处理wxml中的数据（类似于vue中的过滤器），这个时候就可以使用wxs
+  wxs使用限制和特点
+    1.wxs的运行环境和其他的js代码是隔离的。wxs不能调用其他js文件中定义的函数，也不能调用小程序的api
+    2.wxs不能作为组件事件回调
+    3.由于运行环境的差异，在ios设备上小程序内的wxs会比js代码快2~20倍，在android设备上两者运行效率无差异
+ -->
+ <!-- 错误写法 -->
+<!-- <view>{{23.5555.toFixed(2)}}</view>
+<view>{{numberToFixed(23.5555)}}</view> -->
+
+
+<!-- 直接在wxml中进行定义 -->
+<!-- <wxs module="info">
+  var foo="hello world";
+  var name="tian";
+  var sum=function(i,j){
+    return i+j
+  }
+
+  //commonjs的模块化导出的写法
+  module.exports={
+    name:name,
+    sum:sum
+  }
+</wxs> -->
+
+
+
+
+
+<!-- 定义在单独的wxs文件中，在使用<wxs>标签进行导入 -->
+<!-- 不能使用决定路径，必须使用相对路径 -->
+
+<wxs src="../../wxs/info.wxs" module="info"/>
+<view>{{info.name}}</view>
+<view>{{info.sum(3,5)}}</view>
+
+
+
+
+<!-- 3.wxs的应用 -->
+<wxs src="../../wxs/format.wxs" module="format"/>
+<view>{{format.priceFormat(price)}}</view>
+
+<!-- 4.wxs的应用2 服务器返回时间（时间戳）-->
+<view>{{format.dateFormat(time,'yyyy-mm-dd')}}</view>

@@ -160,3 +160,29 @@ mvvm有什么好处：
       监听wxml中的事件，绑定对应的事件函数
       其他一些监听（页面滚动，上拉刷新，下拉加载……）
     -->
+
+
+
+
+<!-- 事件处理
+ -->
+ <button bindtap="handleClick">小明</button>
+ <button bind:tap="handleClick">小明</button>
+ <button catch:tap="handleClick">小明</button>
+ <!-- 2.常见的一些事件 -->
+  <view class="box" bind:touchstart="handleTouchstart">手指开始触摸的时候</view>
+  <view class="box" bind:touchmover="handleTouchMove">手指开始移动的时候</view>
+  <view class="box" bind:touchstart="handleTouchstart" 
+    bind:touchmover="handleTouchMove"
+    bind:touchend="handleTouchMove"
+    bind:tap='handleTap'
+    bind:longpress="handlongpress">手指结束触摸的时候</view>
+
+
+
+
+
+
+
+
+
