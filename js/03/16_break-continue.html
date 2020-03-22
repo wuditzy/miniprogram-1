@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //在循环里面可以使用一个关键字 break
+        //会立即停止循环不再继续向下执行
+        for(var i=0;i<10;i++){
+            if(i==6){
+                //使用break关键字
+                //那么直接从这里跳出循环
+                break
+            }
+        }
+
+        //判断一个数是不是质数
+       var isN=true
+        for(var i=2;i<10-1;i++){
+            if(10%i===0){
+                isN=false
+                break
+            }
+        }
+        isN?console.log('是质数'):console.log('不是质数')
+
+        //continue
+        //在循环中使用的一个关键字
+        //结束循环的本次，继续进行下一次循环
+        for(var i=i;i<5;i++){
+            if(i%2===0){
+                continue
+            }
+            console.log(i)
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 判断数据类型
+        // typeof 关键字来进行判断，typeof关键字返回值就是你检测的这个变量的数据类型
+            // 1.typeof 要检测的变量
+            // 2.typeof(要检测的变量)
+        // typeof关键字的返回值就是你要检测的这个变量的数据类型
+        // typeof关键字的返回值是一个什么数据类型
+        // 当出现两个及两个以上的typeof关键字的时候，都是string
+        // typeof只能准确的检测基本数据类型，到复杂数据类型和null的时候不能准确的检测
+        var n1=100
+        console.log(n1)//number
+
+        // 表示我要检测n1的数据类型
+        var res=typeof n1
+        console.log(res)//string
+
+
+        var u
+        var n=null
+        console.log(typeof u)//undefined
+        console.log(typeof n)//boject
+        console.log(typeof {})//boject
+        console.log(typeof [])//boject
+    </script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //for
+        /*
+            语法
+                for（var i=0;i<3;i++){
+                    循环要执行的代码
+                }
+
+                for(1;2;4){
+                    3
+                }
+
+                var i=0
+                for ( ;i<3; ){
+                    console.log(i)
+                    i++
+                }
+            while 循环主要是用来不确定次数的时候使用
+            for 循环主要是在确定次数的时候使用
+        */
+        
+        // for(var i=0;i<3;i++){
+        //     console.log(i)
+        // }
+        // console.log('for end')
+
+        // 案例
+            //1-100以内所有3的倍数
+            //循环
+            // for(var i=1;i<=100;i++){
+            //     // i就是1-100的每一个数字
+                
+            //     if(i%3===0){
+            //         console.log(i)
+            //     }
+            // }
+
+            // 1-100以内所有3的倍数的和
+            var sum=0
+            // for(var)
+
+            //判断100-200里面的质数
+            for(var i=100;i<200;i++){
+                var isN=true
+                //从2开始，1可以被任何数字整除
+                for(var j=2;j<i;j++){
+                    if(i%j===0){
+                        isN=false
+                    }
+                }
+                
+                if(isN){
+                    console.log(i+'值')
+                }else{
+                    console.log(i+'不是')
+                }
+            }
+
+
+
+
+
+
+
+
+            //三次自幂数 从100-999   每一位的三次幂的和，和这个数相等
+            // 123
+            // 1*1*1+2*2*2+3*3*3
+
+            // var num=123
+            // var a=parseInt(123/100)
+            // var b=parseInt(123%100/10)
+            // var c=num%10
+            // if(a*a*a+b*b*b*+c*c*c===num){
+            //     console.log(num+'是自幂数')
+            // }
+
+            //找到所有的三次自幂数
+            for(var n=100;n<1000;n++){
+                var num=n
+                var a=parseInt(123/100)
+                var b=parseInt(123%100/10)
+                var c=num%10
+                if(a*a*a+b*b*b*+c*c*c===num){
+                    console.log(num+'是自幂数')
+                }
+            }
+
+
+    </script>
+</body>
+</html>

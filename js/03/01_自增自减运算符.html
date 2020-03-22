@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            自增自减
+            ++
+            分两种
+                1.前置++
+                2.后置++
+                区别：在使用前置++的时候，会先把变量值+1，然后用这个+1后的值，参与运算
+                    在使用后置++的时候，会先把变量的值参与运算，然后再把这个变量值+1
+                区别：在使用前置++的时候，会改变变量的值，你用的是改变以后的值
+                    在使用后置++的时候，会改变变量的值，你用的改变以前的值
+            --
+                1.前置--
+                2.后置--
+
+        */
+        var n=10
+        console.log(++n)//先改变在运算 11
+        console.log(n)//11
+        console.log(n++)//先运算再改变  执行后置++的时候，n的值变了，只不过用的是n变之前的值
+
+
+        var a=1
+        var res1=a++ + ++a + ++a + a++
+        1+3+4+4
+        
+        1+2+2+2+2+3
+
+    </script>
+</body>
+</html>

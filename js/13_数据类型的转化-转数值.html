@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1.转换成数值类型
+            // 方法1 Number(你要转换的内容)，返回值的形式接受结果，返回值就是转换后的内容
+            // 在转换的过程中，会把你转化的内容当作一个基本的整体来看待，能转换成功就是一个数值，不能转换成功就是NaN
+
+                var a='100'
+                var res1=Number(a)
+                console.log(res1)
+                console.log(typeof res1)//number
+
+                var a1='11a'
+                var res2= Number(a1)
+                console.log(res2)//NaN
+
+                var u
+                var res3=Number(u)
+                console.log(res3)//NaN
+
+                var b1=true
+                var res4=Number(b1)
+                console.log(res4)//1
+            // 方法二 parseInt(你要转换的内容)结果以返回值的形式得到，
+            // 转换过程中，会把整个东西当作一个完整的文本来看待。从左到右一位一位的看，能转化就转化，转不了就直接停止，把之前转化的结果给你，如果第一位就不能转化，那么直接返回NaN
+            // 不认识小数点，只能解析整数
+                var n1='100'
+                var res5=parseInt(n1)
+                console.log(res5)//
+
+                var n2='100a'
+                var res6=parseInt(n2)
+                console.log(res6)//
+
+                var n3='100.444'
+                var res7=parseInt(n3)
+                console.log(res7)//100
+
+                var n4='a100'
+                var res8=parseInt(n4)
+                console.log(res8)//NaN
+
+                var n5= true
+                var res9=parseInt(n5)
+                console.log(res9)//NaN
+
+                var n6
+                var res10=parseInt(n6)
+                console.log(res10)//NaN
+
+
+            //方法3 parseFloat（你要转化的数据）
+            // 结果以返回值的形式获取 解析方式和parseInt 一样，parseFloat认识小数点
+                var e1='1100'
+                var r1=parseFloat(e1)
+                console.log(r1)//1100
+
+                var e2='a213'
+                var r2=parseFloat(e2)
+                console.log(r2)//NaN
+            // 方法4 进行非+的数学运算 js里面+不仅有数学运算的功能，还有连接字符串功能
+                var f1='100'
+                console.log(f1-0)
+                console.log(f1*1)
+                console.log(f/1)
+                console.log(f1%101)
+                console.log(f1+0)//这种方式不能转换成数字,+两边都是数字或者都是布尔的时候可以进行数学运算。只要有任意一边是字符串的时候就回拼接
+    </script>
+</body>
+</html>

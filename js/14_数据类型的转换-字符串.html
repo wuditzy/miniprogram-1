@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //1.其他数据类型转换成字符串
+            // 方法一String（你要转换的数据),结果以返回值的形式接收
+                console.log(String(100))//string 100
+                console.log(String(true))//string true
+                console.log(String(undefined))//strgin undefined
+
+
+            //方法2 你要转化的数据.toString(),结果以返回值的形式接收
+            // toString()这个方法在使用的时候有一个特殊的作用，可以把一个数字转换进制输出   转换的数据.toStrgin(你要转换的进制数)
+            // 进制数可以填写多少 2-36都可以
+                var n1=100
+                console.log(n1.toString())//string 100
+                
+                var n2=true
+                console.log(n2.toString())//string true
+
+                console.log(n1.toString(2))//string 1100100
+            
+            // 方法3 进行 + 的运算，只要+ 有一边是字符串，就会进行字符串拼接，结果就是一个字符串
+                var res1=n1+''
+                console.log(res1) //string 100
+            
+
+
+
+
+            console.log(1+2+3+4)//10
+            console.log(1+2+3+'4')//64
+            console.log('1'+2+3+4)//1234
+            console.log('1'+2+3*4)//1212
+            console.log((1+'2')+(3+4))//127
+    </script>
+</body>
+</html>

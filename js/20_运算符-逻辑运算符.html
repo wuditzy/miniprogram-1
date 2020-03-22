@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            1.&&  且
+                必须左边为true，右边也为true，整体才能得到true
+            2.||  或
+                只要有一边是true，就能得到true
+            3.!  非
+                本身就是true，那么就得到false。本身是false那么得到true
+                一个数据进行双取反也能转换为布尔
+        
+        */
+        console.log(true&&true)
+        console.log(false&&true)
+        console.log(true&&false)
+        console.log(false&&false)
+
+
+        console.log(true||true)
+        console.log(false||true)
+        console.log(true||false)
+        console.log(false||false)
+
+
+        console.log(!true)
+        console.log(!false)
+        console.log(!0)//true
+        console.log(!!0)//false
+    </script>
+</body>
+</html>

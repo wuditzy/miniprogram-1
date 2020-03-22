@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //switch 也是条件分支的一种
+            //一个条件来的时候，我看你满足那个条件，你满足那个，我给你走那个
+            /*
+                switch(条件){
+                    case 情况1：
+                        情况1执行的代码
+                        break
+                    case 情况2：
+                        情况2执行的代码
+                        break
+                    default：
+                        以上情况都不满足
+                }
+                switch 里面的每一个case都必须是===的状态才能执行，条件判断的时候不能选取一个范围，只能等于的状态
+                break 阻断程序继续执行
+                    break不写的时候，会继续向下穿透另一个条件，执行另一个条件的代码。知道遇到break为止
+
+            */
+            var score=99
+            switch(score){
+                case 100:
+                    console.log('100')
+                    break
+                case 99:
+                    console.log('100')
+                    break
+                case 98:
+                    console.log('100')
+                    break
+                case 97:
+                    console.log('100')
+                    break
+                case 96:
+                    console.log('100')
+                    break
+                default:
+                    console.log('我走了默认的情况')
+            }
+    </script>
+</body>
+</html>
