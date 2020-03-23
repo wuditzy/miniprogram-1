@@ -8,3 +8,32 @@
   width: 100px;
   background-color: #ff9100;
 }
+.container{
+  display: flex;
+}
+.item{
+  flex:1;
+  /* align-items: center; */
+  text-align: center;
+}
+
+
+
+.view1{
+  height: 600rpx;
+  width: 600rpx;
+  background-color: #f00;
+}
+.view2{
+  height: 400rpx;
+  width: 400rpx;
+  background-color: #ff0;
+}
+.view3{
+  height: 200rpx;
+  width: 200rpx;
+  background-color: #0ff;
+}
+.haha{
+  color: #ff0;
+}

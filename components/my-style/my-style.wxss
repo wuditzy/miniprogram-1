@@ -1,0 +1,4 @@
+/* components/my-style/my-style.wxss */
+.title{
+  color: #f00;
+}

@@ -5,10 +5,47 @@ Page({
     name:'tian',//属性
     age:18,
     movies:[
-      { id: 1, name: '333', age: 33 }
+      2,5,6,777
+      // { id: 1, name: '333', age: 33 }
     ],
     counter:0,
-    list:[]
+    list:[],
+    counter:0
+  },
+  handleItemClick(event){
+    console.log(event)
+    console.log(event.currentTarget.dataset)
+
+  },
+  //事件冒泡事件捕获---------------------------------------------------
+  handleCaptureView1(){
+    console.log('handleCaptureView1')
+  },
+  handleBindView1() {
+    console.log('handleBindView1')
+  },
+  handleCaptureView2() {
+    console.log('handleCaptureView2')
+  },
+  handleBindView2() {
+    console.log('handleBindView2')
+  },
+  handleCaptureView3() {
+    console.log('handleCaptureView3')
+  },
+  handleBindView3() {
+    console.log('handleBindView3')
+  },
+  //---------------------------------------------------
+  handleIncrement(event){
+    console.log(event)
+    // console.log('333')
+    this.setData({
+      counter:this.data.counter+1
+    })
+  },
+  tabControlClick(event){
+    console.log(event)
   },
   handleBtnClick(){
     // console.log('33')

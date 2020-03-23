@@ -106,7 +106,7 @@ mvvm有什么好处：
           <view>{{mes}}</view>        
                                   =>{name:'view,
                                   children:[{text:'hello'}]}   => WebView=--->hello
-          {
+          <!-- {
           mes:'hello'
           }
 
@@ -125,9 +125,8 @@ mvvm有什么好处：
   在渲染层，宿主环境会把wxml转化成对应的js对象
   将js对象再次转成真是的dom树，交由渲染层线程渲染
   数据变化时，逻辑层提供最新的变化数据，js对象发生变化比较进行diff算法对比
-  将最新变化的内容反映到真实的dom树中，更新ui
+  将最新变化的内容反映到真实的dom树中，更新ui -->
 
- -->
  <!--
   启动流程
     下载小程序包，启动小程序，加载解析app.json->注册App（）{执行App生命周期，加载自定义组件代码注册自定义组件{
@@ -166,21 +165,113 @@ mvvm有什么好处：
 
 <!-- 事件处理
  -->
- <button bindtap="handleClick">小明</button>
+ <!-- <button bindtap="handleClick">小明</button>
  <button bind:tap="handleClick">小明</button>
- <button catch:tap="handleClick">小明</button>
+ <button catch:tap="handleClick">小明</button> -->
  <!-- 2.常见的一些事件 -->
-  <view class="box" bind:touchstart="handleTouchstart">手指开始触摸的时候</view>
+  <!-- <view class="box" bind:touchstart="handleTouchstart">手指开始触摸的时候</view>
   <view class="box" bind:touchmover="handleTouchMove">手指开始移动的时候</view>
   <view class="box" bind:touchstart="handleTouchstart" 
     bind:touchmover="handleTouchMove"
     bind:touchend="handleTouchMove"
     bind:tap='handleTap'
-    bind:longpress="handlongpress">手指结束触摸的时候</view>
+    bind:longpress="handlongpress">手指结束触摸的时候</view> -->
+
+<!-- 事件对象分析 
+event：全局属性
+type：事件类型
+timeStamp:页面打开到处发所经历的毫秒数
+target：触发事件的组件的一些属性值集合--哪一个组件产生了对象--产生事件的view=currentTarget
+currentTarget:触发事件的view
+detail：鼠标电机的位置
+touches：触摸事件，触摸点数组，用来记录当前 有几个手指在小程序中触摸了
+changeTouches:纪录变化的
+
+-->
+<!-- <button size="mini"
+  bindtap="handleEventClick"
+  bind:touchend="hshshe">事件对象</button> -->
+
+
+
+<!-- 事件传递参数-->
+<!-- <view class="container">
+    <block wx:for="{{movies}}" wx:key="index">
+      <view class="item"
+        bindtap="handleItemClick"
+        data-index="{{index}}"
+        data-item="{{item}}">{{item}}</view>
+    </block>
+</view> -->
+
+
+<!-- 事件冒泡，事件捕获 
+  capture-bind:tap:用bind会一层一层传递
+  用catch阻止事件进一步传递
+-->
+<!-- <view class="view1" capture-catch:tap="handleCaptureView1" bind:tap="handleBindView1">
+  <view class="view2" capture-bind:tap="handleCaptureView2" bind:tap="handleBindView2">
+    <view class="view3" capture-bind:tap="handleCaptureView3" bind:tap="handleBindView3"></view>
+  </view>
+</view> -->
+
+
+
+<!-- 使用自定义组件 -->
+<!-- 1.首先需要在json文件中进行自定义组件生命（将component字段设为true可这一组文件设为自定义组件） 
+    2.在wxml中编写属于我们自己的模板
+    3.在wxss中编写属于我们自己的相关样式
+    4.在js文件中，可以定义数据或数组内部相关逻辑-->
+<my-cpn></my-cpn>
+<!-- 自定义组件注意细节
+  1.因为wxml节点标签名只能，小写字母，中划线和下划线，的组合，所以自定义组件的标签名也只能包含这些字符
+  2.自定义组件也是可以引用自定义组件的，引用方法，类似于页面引用自定义组件（使用usingComponents字段）
+  3.自定义组件和页面所在项目根目录，不能以“wx-”为前缀，否则会报错
+ -->
+ <!-- 自定义组件的样式细节
+  1.组件内的样式对外部样式的影响
+    一，组件内的class的样式，只对组件wxml内的节点生效，对于引用组件page页面不生效
+    二，组件内不能使用id选择器，属性选择器，标签选择器
+  2.外部样式对内部样式的影响
+    一，外部使用class的样式，只对外部wxml的class生效，对组件是不生效的
+    二，外部使用了id选择器，属性选择器不会对组件内产生影响
+    三，外部使用了标签选择器，会对组件内产生影响
+  结论：组件内的class样式和组件外的class样式，默认是有隔离效果的；
+      为了防止样式的错乱，官方不推荐使用id，属性，标签选择器
+
+
+  样式相互影响
+    在component对象中，可以传入一个options属性，其中options属性中有一个styleIsolation（隔离）属性
+    styleIsolation有三个取值：
+      1.-isolated：表示启用样式隔离，在自定义组件外部，使用class指定样式不会相互影响（默认取值）
+      2.-apply-shared：表示页面wxss样式将影响到自定义组件，但自定义组件wxss不会影响到页面
+      3.-shared：表示页面wxss样式将影响到自定义组件，自定义组件wxss的指定样式也会影响到页面和其他页面的设置
+  -->
+    <my-style/>
+
+
+<!-- 组件和页面之间的通信，数据，样式，标签
+      数据：properties
+      样式：externalClasses
+      标签：slot
+      自定义事件
+      1.给自定义组件传递数据/传递样式
+       -->
+      <my-prop title="shihsdhfis" title-class="haha"></my-prop>
+      <my-prop title-class="haha"></my-prop>
+
+
+<!--
+  组件内部发出事件
+ -->
+ <view>当前计数{{counter}}</view>
+<my-event bind:increment="handleIncrement"></my-event>
 
 
 
 
+<!-- lian -->
+<t-tab-control titles="{{['33','44','76777']}}" bind:itemClick="tabControlClick"/>
 
 
 

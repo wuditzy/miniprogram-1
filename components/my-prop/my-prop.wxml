@@ -1,0 +1,7 @@
+<!--components/my-prop/my-prop.wxml-->
+<!-- <text>components/my-prop/my-prop.wxml</text> -->
+
+
+<view class="title-class">我是{{title}}</view>
+
+

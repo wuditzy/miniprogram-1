@@ -10,8 +10,17 @@
     "pages/button/button",
     "pages/text/text",
     "pages/home/home",
-    "pages/about/about"
+    "pages/about/about",
+    "components/my-cpn/my-cpn",
+    "components/cpn1/cpn1",
+    "components/my-style/my-style",
+    "components/my-prop/my-prop",
+    "components/my-event/my-event",
+    "components/t-tab-control/t-tab-control"
   ],
+  "usingComponents": {
+    "my-cpn": "/components/my-cpn/my-cpn"
+  },
   "window": {
     "navigationBarBackgroundColor": "#ff5777",
     "navigationBarTextStyle": "white",

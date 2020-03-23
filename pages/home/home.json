@@ -1,4 +1,9 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "my-style":"/components/my-style/my-style",
+    "my-prop": "/components/my-prop/my-prop",
+    "my-event": "/components/my-event/my-event",
+    "t-tab-control": "/components/t-tab-control/t-tab-control"
+  },
   "enablePullDownRefresh": true
 }

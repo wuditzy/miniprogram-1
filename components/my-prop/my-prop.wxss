@@ -1,0 +1,5 @@
+/* components/my-prop/my-prop.wxss */
+.haha{
+  color: #f00;
+
+}
