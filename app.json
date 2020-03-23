@@ -16,7 +16,10 @@
     "components/my-style/my-style",
     "components/my-prop/my-prop",
     "components/my-event/my-event",
-    "components/t-tab-control/t-tab-control"
+    "components/t-tab-control/t-tab-control",
+    "components/my-sel/my-sel",
+    "components/my-slot/my-slot",
+    "components/my-mslot/my-mslot"
   ],
   "usingComponents": {
     "my-cpn": "/components/my-cpn/my-cpn"

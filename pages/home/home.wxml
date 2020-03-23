@@ -264,14 +264,43 @@ changeTouches:纪录变化的
 <!--
   组件内部发出事件
  -->
- <view>当前计数{{counter}}</view>
-<my-event bind:increment="handleIncrement"></my-event>
+ <!-- <view>当前计数{{counter}}</view>
+<my-event bind:increment="handleIncrement"></my-event> -->
 
 
 
 
 <!-- lian -->
-<t-tab-control titles="{{['33','44','76777']}}" bind:itemClick="tabControlClick"/>
+<!-- <t-tab-control titles="{{['33','44','76777']}}" bind:itemClick="tabControlClick"/> -->
+
+
+
+
+<!-- 
+直接选中组件修改数据/调用的方法
+ -->
+ <!-- <button size="mini" bind:tap="handleIncrementcpn">修改组件内部的按钮</button>
+<my-sel id="sel-id"/> -->
+
+
+
+<!-- 插槽的使用 单个插槽-->
+<!-- <my-slot/> -->
+<!-- <my-slot>
+  <button size="mini">button</button>
+</my-slot> -->
+
+
+
+
+<!-- 多个插槽的使用 
+注意事项
+  1.给每一个插槽起一个名字，name属性
+  2.必须在component对象中添加一个选项：options  multipleSlots设置为true-->
+<my-mslot>
+  <button slot="slot2">button</button>
+  <slider slot="slot1"/>
+</my-mslot>
 
 
 

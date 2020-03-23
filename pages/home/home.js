@@ -44,6 +44,20 @@ Page({
       counter:this.data.counter+1
     })
   },
+  handleIncrementcpn(){
+    // 最终的目的就是修改my-style中的counter
+    //1获取组件对象
+    // const my_sel=this.selectComponent('class/id')
+    const my_sel = this.selectComponent('#sel-id')
+    // console.log(999)
+    //2通过setData修改组件数据（不合理）
+    // my_sel.setData({
+    //   counter:my_sel.data.counter
+    // })
+    //通过方法暴露出来的接口来改变data
+    my_sel.incrementCounter(10)
+
+  },
   tabControlClick(event){
     console.log(event)
   },
