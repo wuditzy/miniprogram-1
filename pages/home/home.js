@@ -1,3 +1,4 @@
+import request from '../../service/network.js'
 //注册一个页面
 Page({
   //这个{}叫做对象的自变量
@@ -10,12 +11,19 @@ Page({
     ],
     counter:0,
     list:[],
-    counter:0
+    counter:0,
+    title:'hahha'
   },
   handleItemClick(event){
     console.log(event)
     console.log(event.currentTarget.dataset)
 
+  },
+  //代码跳转页面
+  handlePushDetail(){
+    wx.navigateTo({
+      url: '/pages/scroll/scroll?name=333',
+    })
   },
   //事件冒泡事件捕获---------------------------------------------------
   handleCaptureView1(){
@@ -78,20 +86,70 @@ Page({
       counter:this.data.counter-1
     })
   },
-
+  handleShowToast(){
+    wx.showToast({
+      title:'shhsh'
+    })
+  },
   //---监听页面生命周期函数
   //页面被加载出来
   onLoad(){
     const _this=this
+    // 1.发送get请求
+    // wx.request({
+    //   url: 'http://123.207.32.32:8000/recommend',
+    //   // method:'post',//请求方式--默认get
+    //   // header,
+    //   data:{//get
+    //     type:'sell',
+    //     page:1
+    //   },
+    //   success:function(res){
+    //     // this.setData//this--undefined
+    //     _this.setData
+    //   }
+    //   // seccess:(res)=>{//箭头函数中的this是一层一层网上找的
+    //   //   console.log(res,'res')
+    //   // }
+    // })
+    // 2.post并且携带参数
     wx.request({
-      url: 'http://123.207.32.23:8000/recommend',
-      success:function(res){
+      url: 'http://httpbin.org/post',
+      method:'post',//请求方式--默认get
+      // header,
+      data: {
+        name: 'sell',
+        age: 1
+      },
+      success: function (res) {
         // this.setData//this--undefined
         _this.setData
+      },
+      file:function(err){
+
+      },
+      complete:function(){
+        //接口请求结束
       }
       // seccess:(res)=>{//箭头函数中的this是一层一层网上找的
       //   console.log(res,'res')
       // }
+    })
+    //封装：1.降低网路请求和wx.request的耦合度
+        // 2.古老的调用方式---axios通过promise里的then---使用promise进行使用
+        // axios.get('',options).then(res=>{}).catch(err=>{})
+
+
+
+    //通过疯转的request调用
+    // promise最大的好处就是防止出现回调地狱
+    request({
+      url:'',
+
+    }).then(res=>{
+
+    }).catch(err=>{
+
     })
   },
   //页面显示出来时

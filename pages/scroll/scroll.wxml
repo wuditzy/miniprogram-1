@@ -29,3 +29,4 @@ hidden：组件要不要显示 hidden="{{true}}"
 data—*
 bind*/catch*:bindtap/catchtap
  -->
+ <button size="mini" bind:tap="handlePushDetail">button</button>

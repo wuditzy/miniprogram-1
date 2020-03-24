@@ -303,6 +303,30 @@ changeTouches:纪录变化的
 </my-mslot>
 
 
+<!-- 弹窗 -->
+<button size="mini" bind:tap="handleShowToast">dd</button>
+
+
+<!-- navigator跳转 -->
+<navigator url="/pages/scroll/scroll">跳</navigator>
+<!-- navigator属性：open-type
+      rediect:将当前页关闭掉跳转到某个页面（不允许跳转到tabbar里面的，也不能返回）
+      swichTap：跳转到tabbar，并关闭其他非tabBar页面
+      reLaunch：所有页面都关闭掉，只展示当前一个页面
+       -->
+<navigator url="/pages/scroll/scroll" open-type="">跳</navigator>
+
+
+
+
+<!-- 跳转过程中数据的传递 -->
+<navigator url="/pages/scroll/scroll?name=333">跳</navigator>
+<view>{{title}}</view> 
+
+
+
+<!-- 通过代码进行跳转 -->
+<button size="mini" bind:tap="handlePushDetail">button</button>
 
 
 
