@@ -1,0 +1,10 @@
+<!--components/w-swiper/w-swiper.wxml-->
+<!-- <text>components/w-swiper/w-swiper.wxml</text> -->
+<swiper class="swiper" circular autoplay interval="3000" duration="300" indicator-dots indicator-active-color="#ff5777">
+  <block wx:for="{{list}}" wx:key="index">
+    <swiper-item class="swiper-item">
+      <!-- mode="widthFix"根据图片大小显示争取的比例 -->
+      <image src="{{item.image}}" mode="widthFix"></image>
+    </swiper-item>
+  </block>
+</swiper>

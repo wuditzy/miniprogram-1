@@ -1,66 +1,67 @@
 // pages/home/home.js
+// import request from '../../service/network.js'
+import {
+  getMultiData,
+  getGoodsData
+} from '../../service/home.js'
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    banner: [],
+    recommend: [],
+    goods: {
+      pop: {
+        page: 0,
+        list: []
+      },
+      newp: {
+        page: 0,
+        list: []
+      },
+      sell: {
+        page: 0,
+        list: []
+      },
+    },
+    tabTitle:['one','two','three'],
+    tabCurrent:0
   },
 
   /**
-   * 生命周期函数--监听页面加载
+   * 生命周期函数--监听页面加载--页面加载完成
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
+    //轮播图推荐数据
+    this._getMultiData()
 
+    //请求商品数据
+    this._getGoodsData('pop')
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  _getMultiData(){
+    //发送网络请求
+    getMultiData().then(res => {
+      // console.log(res)
+      //取出轮播图和数据
+      const banner = res.data.data.banner.list
+      const recommend = res.data.data.recommend.list
+      this.setData({
+        banner,
+        recommend
+      })
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  _getGoodsData(type){
+    // 获取页码
+    const page=this.data.goods[type].page+1
+    getGoodsData(type,page).then(res=>{
+      console.log(res)
+      // 1取出数据
+      // const list=res.data
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  //获取tabcontrol的索引
+  handleTabControl(event){
+    this.setData({
+      tabCurrent:event.currentTarget.dataset.index
+    })
   }
 })

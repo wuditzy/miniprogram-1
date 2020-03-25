@@ -1,8 +1,20 @@
 <!--pages/home/home.wxml-->
-<text class="title">home</text>
-<button size="mini">按钮</button>
-<view>是的</view>
-<button size="mini">按钮</button>
-<button size="mini">按钮</button>
-<button size="mini">按钮</button>
-<button size="mini">按钮</button>
+
+
+
+<!--展示轮播图  -->
+<!-- <w-swiper list="{{banner}}"/> -->
+
+
+<!-- 推荐数据的展示 -->
+<!-- <w-recommend recommend="{{recommend}}"/> -->
+
+<!-- popular -->
+<!-- <w-popular/> -->
+
+<!-- tab-control -->
+<w-tabControl tabTitle="{{tabTitle}}"/>
+
+
+
+

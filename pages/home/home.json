@@ -1,3 +1,9 @@
 {
-  "usingComponents": {}
+  "usingComponents":{
+    "w-swiper":"/components/w-swiper/w-swiper",
+    "w-recommend":"./child/w-recommend/w-recommend",
+    "w-popular":"./child/w-popular/w-popular",
+    "w-tabControl":"/components/w-tabControl/w-tabControl"
+  },
+  "navigationBarTitleText":"首页"
 }

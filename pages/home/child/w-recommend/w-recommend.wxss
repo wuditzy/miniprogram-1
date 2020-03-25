@@ -1,0 +1,11 @@
+/* pages/home/child/w-recommend/w-recommend.wxss */
+.recommend{
+  display: flex;
+}
+.recommend-item{
+  flex: 1;
+}
+.recommend-item image{
+  height: 160rpx;
+  width: 160rpx;
+}
